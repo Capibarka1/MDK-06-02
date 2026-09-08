@@ -1,0 +1,109 @@
+object SearchForm: TSearchForm
+  Left = 603
+  Height = 300
+  Top = 32
+  Width = 600
+  Caption = 'Поиск'
+  ClientHeight = 300
+  ClientWidth = 600
+  Constraints.MinHeight = 300
+  Constraints.MinWidth = 600
+  DesignTimePPI = 120
+  LCLVersion = '4.4.0.0'
+  OnResize = FormResize
+  object ButtonsPanel: TPanel
+    Left = 0
+    Height = 62
+    Top = 238
+    Width = 600
+    Align = alBottom
+    ChildSizing.EnlargeHorizontal = crsHomogenousSpaceResize
+    ChildSizing.Layout = cclTopToBottomThenLeftToRight
+    ClientHeight = 62
+    ClientWidth = 600
+    TabOrder = 0
+    object SearchButton: TBitBtn
+      Left = 138
+      Height = 30
+      Top = 1
+      Width = 89
+      AutoSize = True
+      Caption = 'Поиск'
+      Kind = bkOK
+      ModalResult = 1
+      TabOrder = 0
+    end
+    object CancelButton: TBitBtn
+      Left = 363
+      Height = 30
+      Top = 1
+      Width = 99
+      AutoSize = True
+      Caption = 'Отмена'
+      Kind = bkClose
+      ModalResult = 11
+      TabOrder = 1
+      OnClick = CancelButtonClick
+    end
+  end
+  object InputPanel: TPanel
+    Left = 0
+    Height = 238
+    Top = 0
+    Width = 600
+    Align = alClient
+    BevelOuter = bvNone
+    ChildSizing.LeftRightSpacing = 20
+    ChildSizing.TopBottomSpacing = 20
+    ChildSizing.VerticalSpacing = 20
+    ChildSizing.EnlargeHorizontal = crsSameSize
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ClientHeight = 238
+    ClientWidth = 600
+    TabOrder = 1
+    object InputTypeLabel: TLabel
+      Left = 20
+      Height = 20
+      Top = 20
+      Width = 560
+      Caption = 'Выберите столбец таблицы для поиска'
+    end
+    object InputType: TComboBox
+      Left = 20
+      Height = 28
+      Top = 60
+      Width = 560
+      ItemHeight = 20
+      ItemIndex = 0
+      Items.Strings = (
+        'ИНН'
+        'Организация'
+        'Контактное лицо'
+        'Телефон'
+        'Задолженность'
+      )
+      TabOrder = 0
+      Text = 'ИНН'
+      OnSelect = InputTypeSelect
+    end
+    object InputLabel: TLabel
+      Left = 20
+      Height = 20
+      Top = 108
+      Width = 560
+      Caption = 'Введите  значение данного столбца'
+    end
+    object TextInput: TMaskEdit
+      Left = 20
+      Height = 28
+      Top = 148
+      Width = 560
+      EnableSets = False
+      MaxLength = 0
+      TabOrder = 1
+      ValidationErrorMode = mvemEvent
+      SpaceChar = '_'
+      OnValidationError = TextInputValidationError
+    end
+  end
+end

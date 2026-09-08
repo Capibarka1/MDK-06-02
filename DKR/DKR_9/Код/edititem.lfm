@@ -1,0 +1,173 @@
+object ItemForm: TItemForm
+  Left = 603
+  Height = 496
+  Top = 32
+  Width = 890
+  Caption = 'Запись'
+  ClientHeight = 496
+  ClientWidth = 890
+  Constraints.MinHeight = 400
+  Constraints.MinWidth = 600
+  DesignTimePPI = 120
+  LCLVersion = '4.4.0.0'
+  OnResize = FormResize
+  object LabelPanel: TPanel
+    AnchorSideBottom.Control = Owner
+    Left = 0
+    Height = 368
+    Top = 0
+    Width = 141
+    Align = alLeft
+    AutoSize = True
+    ChildSizing.LeftRightSpacing = 10
+    ChildSizing.TopBottomSpacing = 20
+    ChildSizing.VerticalSpacing = 50
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ClientHeight = 368
+    ClientWidth = 141
+    TabOrder = 0
+    object INNLabel: TLabel
+      Left = 11
+      Height = 20
+      Top = 21
+      Width = 119
+      Caption = 'ИНН'
+    end
+    object OrganizationLabel: TLabel
+      Left = 11
+      Height = 20
+      Top = 91
+      Width = 119
+      Caption = 'Организация'
+    end
+    object ContactLabel: TLabel
+      Left = 11
+      Height = 20
+      Top = 161
+      Width = 119
+      Caption = 'Контактное лицо'
+    end
+    object PhoneLabel: TLabel
+      Left = 11
+      Height = 20
+      Top = 231
+      Width = 119
+      Caption = 'Телефон'
+    end
+    object DebtLabel: TLabel
+      Left = 11
+      Height = 20
+      Top = 301
+      Width = 119
+      Caption = 'Задолженность'
+    end
+  end
+  object InputPanel: TPanel
+    AnchorSideBottom.Control = Owner
+    Left = 141
+    Height = 368
+    Top = 0
+    Width = 749
+    Align = alClient
+    AutoSize = True
+    ChildSizing.LeftRightSpacing = 10
+    ChildSizing.TopBottomSpacing = 20
+    ChildSizing.VerticalSpacing = 40
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ClientHeight = 368
+    ClientWidth = 749
+    TabOrder = 1
+    object INNInput: TMaskEdit
+      Left = 11
+      Height = 28
+      Top = 21
+      Width = 727
+      EnableSets = False
+      MaxLength = 10
+      TabOrder = 0
+      ValidationErrorMode = mvemEvent
+      EditMask = '0000000000;1;_'
+      Text = '          '
+      SpaceChar = '_'
+      OnValidationError = INNInputValidationError
+    end
+    object OrganizationInput: TEdit
+      Left = 11
+      Height = 28
+      Top = 89
+      Width = 727
+      MaxLength = 30
+      TabOrder = 1
+    end
+    object ContactInput: TEdit
+      Left = 11
+      Height = 28
+      Top = 157
+      Width = 727
+      MaxLength = 30
+      TabOrder = 2
+    end
+    object PhoneInput: TMaskEdit
+      Left = 11
+      Height = 28
+      Top = 225
+      Width = 727
+      EnableSets = False
+      MaxLength = 17
+      TabOrder = 3
+      ValidationErrorMode = mvemEvent
+      EditMask = '+7(000)-000-00-00;1;_'
+      Text = '+7(   )-   -  -  '
+      SpaceChar = '_'
+      OnValidationError = PhoneInputValidationError
+    end
+    object DebtInput: TEdit
+      Left = 11
+      Height = 28
+      Top = 293
+      Width = 727
+      MaxLength = 15
+      NumbersOnly = True
+      TabOrder = 4
+    end
+  end
+  object ButtonPanel: TPanel
+    Left = 0
+    Height = 128
+    Top = 368
+    Width = 890
+    Align = alBottom
+    ChildSizing.EnlargeHorizontal = crsHomogenousSpaceResize
+    ChildSizing.EnlargeVertical = crsHomogenousSpaceResize
+    ChildSizing.Layout = cclTopToBottomThenLeftToRight
+    ClientHeight = 128
+    ClientWidth = 890
+    TabOrder = 2
+    object SaveButton: TBitBtn
+      Left = 219
+      Height = 30
+      Top = 49
+      Width = 120
+      AutoSize = True
+      Caption = 'Сохранить'
+      Default = True
+      Kind = bkOK
+      ModalResult = 1
+      TabOrder = 0
+      OnClick = SaveButtonClick
+    end
+    object CancelButton: TBitBtn
+      Left = 557
+      Height = 30
+      Top = 49
+      Width = 114
+      AutoSize = True
+      Cancel = True
+      Caption = 'Отменить'
+      Kind = bkCancel
+      ModalResult = 2
+      TabOrder = 1
+    end
+  end
+end

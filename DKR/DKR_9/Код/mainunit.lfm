@@ -1,0 +1,115 @@
+object MainForm: TMainForm
+  Left = 603
+  Height = 326
+  Top = 32
+  Width = 803
+  Caption = 'Программа'
+  ClientHeight = 326
+  ClientWidth = 803
+  Constraints.MinHeight = 200
+  Constraints.MinWidth = 800
+  DesignTimePPI = 120
+  Menu = MainMenu
+  Position = poDesktopCenter
+  LCLVersion = '4.4.0.0'
+  OnClose = FormClose
+  OnCreate = FormCreate
+  object MainGrid: TStringGrid
+    Left = 0
+    Height = 326
+    Top = 0
+    Width = 803
+    Align = alClient
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goSmoothScroll]
+    RowCount = 1
+    ScrollBars = ssAutoHorizontal
+    TabOrder = 0
+    OnCompareCells = MainGridCompareCells
+    OnDblClick = EditItemClick
+    ColWidths = (
+      160
+      159
+      159
+      159
+      159
+    )
+  end
+  object MainMenu: TMainMenu
+    Left = 632
+    Top = 136
+    object FileActions: TMenuItem
+      Caption = 'Файл'
+      object CreateFile: TMenuItem
+        Caption = 'Создать / новый файл'
+        OnClick = CreateFileClick
+      end
+      object OpenFile: TMenuItem
+        Caption = 'Открыть файл'
+        ShortCut = 16463
+        OnClick = OpenFileClick
+      end
+      object SaveFile: TMenuItem
+        Caption = 'Сохранить'
+        ShortCut = 16467
+        OnClick = SaveFileClick
+      end
+      object SaveFileAs: TMenuItem
+        Caption = 'Сохранить как'
+        OnClick = SaveFileAsClick
+      end
+      object CloseFiles: TMenuItem
+        Caption = 'Закрыть файл'
+        OnClick = CloseFilesClick
+      end
+      object ExitProgram: TMenuItem
+        Caption = 'Выход из программы'
+        ShortCut = 27
+        OnClick = ExitProgramClick
+      end
+    end
+    object ItemActions: TMenuItem
+      Caption = 'Запись'
+      object AddItem: TMenuItem
+        Caption = 'Добавить запись'
+        OnClick = AddItemClick
+      end
+      object EditItem: TMenuItem
+        Caption = 'Редактировать запись'
+        OnClick = EditItemClick
+      end
+      object DeleteItem: TMenuItem
+        Caption = 'Удалить запись'
+        OnClick = DeleteItemClick
+      end
+      object SortItem: TMenuItem
+        Caption = 'Сортировка'
+        object IncreaseSort: TMenuItem
+          Caption = 'По возрастанию'
+          OnClick = IncreaseSortClick
+        end
+        object DecreaseSort: TMenuItem
+          Caption = 'По убыванию'
+          OnClick = DecreaseSortClick
+        end
+      end
+      object SearchItem: TMenuItem
+        Caption = 'Поиск записи'
+        OnClick = SearchItemClick
+      end
+      object ClearForm: TMenuItem
+        Caption = 'Очистить форму / Новый ввод'
+        OnClick = ClearFormClick
+      end
+    end
+  end
+  object OpenFileDialog: TOpenDialog
+    Left = 466
+    Top = 144
+  end
+  object SaveFileDialog: TSaveDialog
+    DefaultExt = '.dat'
+    Left = 295
+    Top = 136
+  end
+end

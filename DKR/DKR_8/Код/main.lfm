@@ -1,0 +1,143 @@
+object MainForm: TMainForm
+  Left = 611
+  Height = 400
+  Top = 274
+  Width = 680
+  Anchors = []
+  Caption = 'Таймер'
+  ClientHeight = 400
+  ClientWidth = 680
+  Color = clWhite
+  Constraints.MinHeight = 300
+  Constraints.MinWidth = 400
+  DesignTimePPI = 120
+  Menu = ExitMenu
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnResize = FormResize
+  object InputTime: TPanel
+    Left = 197
+    Height = 30
+    Top = 262
+    Width = 303
+    Anchors = []
+    AutoSize = True
+    BorderSpacing.Top = 30
+    BevelOuter = bvNone
+    ChildSizing.HorizontalSpacing = 5
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 5
+    ClientHeight = 30
+    ClientWidth = 303
+    ParentBackground = False
+    TabOrder = 2
+    VerticalAlignment = taAlignTop
+    object ChangeHour: TRadioButton
+      Left = 0
+      Height = 30
+      Top = 0
+      Width = 57
+      Alignment = taLeftJustify
+      Caption = 'Часы'
+      Color = clBackground
+      ParentColor = False
+      TabOrder = 0
+      OnChange = ChangeHourChange
+    end
+    object ChangeMinute: TRadioButton
+      Left = 62
+      Height = 30
+      Top = 0
+      Width = 76
+      Alignment = taLeftJustify
+      Caption = 'Минуты'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clRed
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 1
+      OnChange = ChangeMinuteChange
+    end
+    object ChangeSecond: TRadioButton
+      Left = 143
+      Height = 30
+      Top = 0
+      Width = 80
+      Alignment = taLeftJustify
+      Caption = 'Секунды'
+      TabOrder = 2
+      OnChange = ChangeSecondChange
+    end
+    object PlusTime: TButton
+      Left = 228
+      Height = 30
+      Top = 0
+      Width = 36
+      Caption = '+'
+      TabOrder = 3
+      OnClick = PlusTimeClick
+    end
+    object MinusTime: TButton
+      Left = 269
+      Height = 30
+      Top = 0
+      Width = 34
+      Caption = '–'
+      TabOrder = 4
+      OnClick = MinusTimeClick
+    end
+  end
+  object TimeLabel: TLabel
+    Left = 226
+    Height = 81
+    Top = 156
+    Width = 242
+    Alignment = taCenter
+    Anchors = []
+    AutoSize = False
+    Caption = '00:00:00'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -60
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    Layout = tlCenter
+    ParentBidiMode = False
+    ParentFont = False
+    OnMouseWheelDown = TimeLabelMouseWheelDown
+    OnMouseWheelUp = TimeLabelMouseWheelUp
+  end
+  object StartTimer: TButton
+    Left = 160
+    Height = 72
+    Top = 328
+    Width = 167
+    Anchors = []
+    Caption = 'Старт'
+    TabOrder = 0
+    OnClick = StartTimerClick
+  end
+  object StopTimer: TButton
+    Left = 344
+    Height = 71
+    Top = 329
+    Width = 165
+    Anchors = []
+    Caption = 'Стоп'
+    TabOrder = 1
+    OnClick = StopTimerClick
+  end
+  object TimerInterval: TTimer
+    OnTimer = TimerIntervalTimer
+    Left = 400
+  end
+  object ExitMenu: TMainMenu
+    Left = 539
+    Top = 37
+    object Goodbye: TMenuItem
+      Caption = 'Выход'
+      OnClick = GoodbyeClick
+    end
+  end
+end
